@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Keep all your original head content -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasper Eupan | Portfolio</title>
+    <meta name="description" content="Portfolio of Jasper Eupan, aspiring web developer and IT student">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" href="images/icon.jpg" type="image/x-icon">
+</head>
+<body>
+     <div class="hero-header">
+        <!-- Keep your original header -->
+        <header>
+            <div class="logo">
+                <div class="logo-text">Jasper Eupan | Web Portfolio</div>
+            </div>
+            <nav>
+                <div class="togglebtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="navlinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="About.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="wrapper">
+            <!-- Keep your original hero section -->
+            <div class="container">
+                 <div class="hero-pic">
+                    <img src="images/profile.jpg" alt="Jasper Eupan profile picture">
+                 </div>
+                 <div class="hero-text">
+                    <h5>Hi I'm</h5>
+                    <h1>Jasper Eupan</h1>
+                    <h2><span class="input"></span></h2>
+                    <p>I'm a passionate IT student with a focus on web development. I love creating responsive, user-friendly websites and continuously expanding my skills in JavaScript, PHP, and modern frameworks.</p>
+
+                    <div class="btn-group">
+                      <a href="JASPER-A..pdf" class="btn active" download="Jasper-Eupan-CV.pdf">
+                      <i class="fas fa-download"></i> Download CV
+                   </a>
+                       <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://facebook.com/jspr.sc" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://github.com/Jasper1931" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/jperrrrrrr" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                 </div>
+            </div>
+            <hr>
+            
+            <section class="tech-stack-section">
+                <h2>My Tech Stack</h2>
+                <div class="tech-stack-container">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <p class="tech-description">Semantic markup and accessibility best practices</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <p class="tech-description">Responsive design and modern layout techniques</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p class="tech-description">Interactive web experiences and DOM manipulation</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <h3>PHP</h3>
+                        <p class="tech-description">Server-side scripting and database integration</p>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            
+            <!-- RESTORED PROJECT PREVIEW SECTION -->
+            <section class="projects-preview">
+                <h2>Project Previews</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="images/quiz.png" alt="Quiz App Project">
+                        <div class="project-info">
+                            <h3>Quiz Application</h3>
+                            <p>A responsive quiz application with score tracking and multiple categories.</p>
+                            <a href="quizzes.html" class="btn small">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/proj.png" alt="Portfolio Project">
+                        <div class="project-info">
+                            <h3>Personal Portfolio</h3>
+                            <p>This responsive portfolio website showcasing my projects and skills.</p>
+                            <a href="#" class="btn small">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            
+            <section id="contact" class="contact-section">
+                <h2>Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-text">
+                        <h3>Let's Work Together</h3>
+                        <p>I'm currently looking for internship opportunities and freelance projects. If you have any questions or would like to discuss potential collaborations, feel free to reach out!</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
+                            <p><i class="fas fa-phone"></i> +63 XXX XXX XXXX</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Cavite, Philippines</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+     </div>
+     
+     <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jasper Eupan</h3>
+                <p>IT Student & Aspiring Web Developer</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quizzes.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://facebook.com/jspr.sc" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/Jasper1931" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/jperrrrrrr" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Jasper Eupan. All Rights Reserved.</p>
+        </div>
+    </footer>
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+       document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
