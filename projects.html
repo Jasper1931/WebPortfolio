@@ -23,51 +23,62 @@
                     <span></span>
                 </div>
                 <ul class="navlinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="quizzes.html" class="active">Quizzes</a></li>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
                     <li><a href="About.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </header>
+        
 
         <main class="wrapper">
-            <section id="gallery" class="container section">
-                <h2>Quizzes</h2>
-                <div class="gallery-container">
-                    <div class="gallery">
-                        <!-- Images will be dynamically added here -->
+            <section id="projects">
+                <h2>Projects</h2>
+                
+                <div class="projects-row">
+                    <div class="project-container">
+                        <div class="project-title-wrapper">
+                            <h2 class="project-title">Laboratory 1</h2>
+                        </div>
+                        <div class="projects-gallery" id="project1-gallery">
+                            <!-- Gallery content -->
+                        </div>
+                    </div>
+            
+                    <div class="project-container">
+                        <div class="project-title-wrapper">
+                            <h2 class="project-title">Laboratory 2</h2>
+                        </div>
+                        <div class="projects-gallery" id="project2-gallery">
+                            <!-- Gallery content -->
+                        </div>
                     </div>
                 </div>
-
-                <div id="gallery-modal" class="modal">
-                    <span class="close" aria-label="Close modal">&times;</span>
-                    <img class="modal-content" id="modal-img" alt="Enlarged quiz image">
-                    <div id="modal-info"></div>
-                </div>
             </section>
-        </main>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About My Projects</h3>
-                    <p>This collection showcases my projects demonstrating web development skills and knowledge.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="social-links">
-                    <a href="https://facebook.com/jspr.sc" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://github.com/Jasper1931" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://twitter.com/jperrrrrrr" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-                <p>&copy; <span id="year"></span> Jasper Eupan. All Rights Reserved.</p>
-            </div>
-        </footer>
     </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About My Projects</h3>
+                <p>This collection showcases my projects demonstrating web development skills and knowledge.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://facebook.com/jspr.sc" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/Jasper1931" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/jperrrrrrr" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Jasper Eupan. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

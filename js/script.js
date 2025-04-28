@@ -188,4 +188,253 @@ document.querySelectorAll('.project-card').forEach((card, index) => {
   
   window.addEventListener('scroll', animateOnScroll);
   animateOnScroll(); // Run once on load
+
+     // Projects data
+     const projectsData = {
+        "project1": [
+            {
+                src: "images/project1.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project2.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project3.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project4.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project5.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project6.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            },
+            {
+                src: "images/project7.png",
+                title: "Project 1",
+                description: "Description of Project 1"
+            }
+
+        ],
+        "project2": [
+            {
+                src: "images/lab1.png",
+                title: "Project 2",
+                description: "Description of Project 2"
+            },
+            {
+                src: "images/lab2.png",
+                title: "Project 2",
+                description: "Description of Project 2"
+            },
+            {
+                src: "images/lab3.png",
+                title: "Project 2",
+                description: "Description of Project 2"
+            },
+            {
+                src: "images/lab4.png",
+                title: "Project 2",
+                description: "Description of Project 2"
+            },
+            {
+                src: "images/lab5.png",
+                title: "Project 2",
+                description: "Description of Project 2"
+            }
+            
+        ]
+    };
+
+    // Create modal HTML
+    const modal = document.createElement('div');
+    modal.className = 'project-modal';
+    modal.innerHTML = `
+        <span class="project-modal-close">&times;</span>
+        <img class="project-modal-content" id="modal-current-image" alt="">
+        <div class="project-modal-info" id="modal-image-info"></div>
+                <div class="project-modal-nav">
+        <button id="modal-prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+        <button id="modal-next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Gallery controls
+    const galleries = {};
+
+    // Initialize galleries
+    document.querySelectorAll('.projects-gallery').forEach((gallery, index) => {
+        const projectId = `project${index + 1}`;
+        const projects = projectsData[projectId];
+        
+        // Store gallery state
+        galleries[projectId] = {
+            currentIndex: 0,
+            element: gallery,
+            projects: projects
+        };
+
+        // Create gallery HTML
+        gallery.innerHTML = `
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="${projects[0].src}" alt="${projects[0].title}" class="current-image">
+                </div>
+            </div>
+            <div class="gallery-caption">
+                <h3 class="image-title">${projects[0].title}</h3>
+                <p class="image-description">${projects[0].description}</p>
+            </div>
+            <div class="gallery-nav">
+                <button class="prev-btn" aria-label="Previous image" ${projects.length <= 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="next-btn" aria-label="Next image" ${projects.length <= 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        `;
+
+        // Add click event to image
+        gallery.querySelector('.gallery-image-container').addEventListener('click', () => {
+            showModal(projectId, galleries[projectId].currentIndex);
+        });
+
+        // Add event listeners to gallery navigation buttons
+        gallery.querySelector('.next-btn').addEventListener('click', () => {
+            nextProject(projectId);
+        });
+
+        gallery.querySelector('.prev-btn').addEventListener('click', () => {
+            prevProject(projectId);
+        });
+    });
+
+    // Gallery navigation functions
+    function nextProject(projectId) {
+        const gallery = galleries[projectId];
+        if (gallery.currentIndex < gallery.projects.length - 1) {
+            gallery.currentIndex++;
+            updateGallery(projectId);
+        }
+    }
+
+    function prevProject(projectId) {
+        const gallery = galleries[projectId];
+        if (gallery.currentIndex > 0) {
+            gallery.currentIndex--;
+            updateGallery(projectId);
+        }
+    }
+
+    function updateGallery(projectId) {
+        const gallery = galleries[projectId];
+        const project = gallery.projects[gallery.currentIndex];
+        const galleryElement = gallery.element;
+        
+        galleryElement.querySelector('.current-image').src = project.src;
+        galleryElement.querySelector('.current-image').alt = project.title;
+        galleryElement.querySelector('.image-title').textContent = project.title;
+        galleryElement.querySelector('.image-description').textContent = project.description;
+        
+        // Update button states
+        galleryElement.querySelector('.prev-btn').disabled = gallery.currentIndex === 0;
+        galleryElement.querySelector('.next-btn').disabled = gallery.currentIndex === gallery.projects.length - 1;
+    }
+
+    // Modal control functions
+    function showModal(galleryId, index) {
+        const project = projectsData[galleryId][index];
+        
+        document.getElementById('modal-current-image').src = project.src;
+        document.getElementById('modal-current-image').alt = project.title;
+        document.getElementById('modal-image-info').textContent = `${project.title} - ${project.description}`;
+        
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        
+        // Update current context
+        modal.dataset.currentGallery = galleryId;
+        modal.dataset.currentIndex = index;
+        
+        // Update modal button states
+        updateModalButtons();
+    }
+
+    function updateModalButtons() {
+        const galleryId = modal.dataset.currentGallery;
+        const currentIndex = parseInt(modal.dataset.currentIndex);
+        const projects = projectsData[galleryId];
+        
+        document.getElementById('modal-prev-btn').disabled = currentIndex === 0;
+        document.getElementById('modal-next-btn').disabled = currentIndex === projects.length - 1;
+    }
+
+    function modalNextProject() {
+        const galleryId = modal.dataset.currentGallery;
+        let currentIndex = parseInt(modal.dataset.currentIndex);
+        const projects = projectsData[galleryId];
+        
+        if (currentIndex < projects.length - 1) {
+            currentIndex++;
+            modal.dataset.currentIndex = currentIndex;
+            showModal(galleryId, currentIndex);
+        }
+    }
+
+    function modalPrevProject() {
+        const galleryId = modal.dataset.currentGallery;
+        let currentIndex = parseInt(modal.dataset.currentIndex);
+        const projects = projectsData[galleryId];
+        
+        if (currentIndex > 0) {
+            currentIndex--;
+            modal.dataset.currentIndex = currentIndex;
+            showModal(galleryId, currentIndex);
+        }
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Modal event listeners
+    document.getElementById('modal-prev-btn').addEventListener('click', modalPrevProject);
+    document.getElementById('modal-next-btn').addEventListener('click', modalNextProject);
+    document.querySelector('.project-modal-close').addEventListener('click', closeModal);
+
+    // Click outside to close
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (modal.style.display === "block") {
+            if (e.key === "ArrowRight") {
+                modalNextProject();
+            } else if (e.key === "ArrowLeft") {
+                modalPrevProject();
+            } else if (e.key === "Escape") {
+                closeModal();
+            }
+        }
+    });
 });

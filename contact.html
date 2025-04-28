@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Keep all your original head content -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasper Eupan | Portfolio</title>
+    <meta name="description" content="Portfolio of Jasper Eupan, aspiring web developer and IT student">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" href="images/icon.jpg" type="image/x-icon">
+</head>
+<body>
+     <div class="hero-header">
+        <!-- Keep your original header -->
+        <header>
+            <div class="logo">
+                <div class="logo-text">My Web Portfolio</div>
+            </div>
+            <nav>
+                <div class="togglebtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="wrapper">
+
+            <section id="contact" class="contact-section">
+                <h2>Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-text">
+                        <h3>Let's Work Together</h3>
+                        <p>I'm currently looking for internship opportunities and freelance projects. If you have any questions or would like to discuss potential collaborations, feel free to reach out!</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
+                            <p><i class="fas fa-phone"></i> +63 XXX XXX XXXX</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Cavite, Philippines</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+     </div>
+     
+     <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jasper Eupan</h3>
+                <p>IT Student & Aspiring Web Developer</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> sc.jaspereupan@cvsu.edu.ph</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://facebook.com/jspr.sc" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/Jasper1931" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/jperrrrrrr" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/jspr031931" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Jasper Eupan. All Rights Reserved.</p>
+        </div>
+    </footer>
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+       document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
