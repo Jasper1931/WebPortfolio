@@ -89,7 +89,8 @@ if (Object.values(quizGalleries).some(gallery => gallery !== null)) {
         ],
         laboratory: [
             { src: "images/Lab 1.jpeg", desc: "Laboratory 1" },
-            { src: "images/Lab 1 - Wireframe.jpeg", desc: "Laboratory 1 - Wireframe" }
+            { src: "images/Lab 1 - Wireframe.jpeg", desc: "Laboratory 1 - Wireframe" },
+            { src: "images/Lab 2.jpeg", desc: "Laboratory 2" }
         ]
     };
     
