@@ -53,70 +53,94 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Gallery functionality
-  const gallery = document.querySelector('.gallery');
-  if (gallery) {
-      const modal = document.getElementById('gallery-modal');
-      const modalImg = document.getElementById('modal-img');
-      const modalInfo = document.getElementById('modal-info');
-      const closeBtn = document.querySelector('.close');
-      
-      const images = [
-          { src: "images/quiz1.jpg", desc: "QUIZ 1" },
-          { src: "images/quiz2.jpg", desc: "QUIZ 2" },
-          { src: "images/quiz3.jpg", desc: "QUIZ 3" },
-          { src: "images/quiz4.jpg", desc: "QUIZ 4" },
-          { src: "images/quiz5.jpg", desc: "QUIZ 5" },
-          { src: "images/quiz6.jpg", desc: "QUIZ 6" },
-          { src: "images/quiz7.jpg", desc: "QUIZ 7" },
-          { src: "images/quiz8.jpg", desc: "QUIZ 8" }
-      ];
-      
-      // Clear existing gallery items
-      gallery.innerHTML = '';
-      
-      // Create gallery items
-      images.forEach(image => {
-          const galleryItem = document.createElement('div');
-          galleryItem.className = 'gallery-item';
-          
-          const img = document.createElement('img');
-          img.src = image.src;
-          img.alt = image.desc;
-          img.loading = "lazy";
-          
-          const caption = document.createElement('p');
-          caption.textContent = image.desc;
-          
-          galleryItem.appendChild(img);
-          galleryItem.appendChild(caption);
-          gallery.appendChild(galleryItem);
-          
-          // Add click event to show modal
-          galleryItem.addEventListener('click', () => {
-              modal.style.display = "block";
-              modalImg.src = image.src;
-              modalInfo.textContent = image.desc;
-              document.body.style.overflow = "hidden";
-          });
-      });
-      
-      // Close modal when X is clicked
-      if (closeBtn) {
-          closeBtn.addEventListener('click', () => {
-              modal.style.display = "none";
-              document.body.style.overflow = "auto";
-          });
-      }
-      
-      // Close modal when clicking outside
-      window.addEventListener('click', (e) => {
-          if (e.target === modal) {
-              modal.style.display = "none";
-              document.body.style.overflow = "auto";
-          }
-      });
-  }
+// Quiz Gallery functionality
+const quizGalleries = {
+    midterm: document.getElementById('midterm-gallery'),
+    pretest: document.getElementById('pretest-gallery'),
+    posttest: document.getElementById('posttest-gallery'),
+    laboratory: document.getElementById('laboratory-gallery')
+};
+
+if (Object.values(quizGalleries).some(gallery => gallery !== null)) {
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalInfo = document.getElementById('modal-info');
+    const closeBtn = document.querySelector('.close');
+    
+    const quizImages = {
+        midterm: [
+            { src: "images/longquiz.jpg", desc: "Long Quiz" },
+            { src: "images/midterm.jpg", desc: "Midterm Exam" },
+
+        ],
+        pretest: [
+            { src: "images/pre1.jpg", desc: "Pre-test 1" },            
+            { src: "images/pre2.png", desc: "Pre-test 2" },
+            { src: "images/pre3.png", desc: "Pre-test 3" },
+            { src: "images/pre4.png", desc: "Pre-test 4" },
+            { src: "images/pre5.png", desc: "Pre-test 5" }
+        ],
+        posttest: [
+            { src: "images/post1.jpg", desc: "Post-test 1" },
+            { src: "images/post2.jpg", desc: "Post-test 2" },
+            { src: "images/post3.jpg", desc: "Post-test 3" },
+            { src: "images/post4.jpg", desc: "Post-test 4" },
+            { src: "images/post5.jpg", desc: "Post-test 5" }
+        ],
+        laboratory: [
+            { src: "images/Lab 1.jpeg", desc: "Laboratory 1" },
+            { src: "images/Lab 1 - Wireframe.jpeg", desc: "Laboratory 1 - Wireframe" }
+        ]
+    };
+    
+    // Create gallery items for each category
+    for (const [category, gallery] of Object.entries(quizGalleries)) {
+        if (gallery) {
+            gallery.innerHTML = '';
+            
+            quizImages[category].forEach(image => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.desc;
+                img.loading = "lazy";
+                
+                const caption = document.createElement('p');
+                caption.textContent = image.desc;
+                
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(caption);
+                gallery.appendChild(galleryItem);
+                
+                // Add click event to show modal
+                galleryItem.addEventListener('click', () => {
+                    modal.style.display = "block";
+                    modalImg.src = image.src;
+                    modalInfo.textContent = image.desc;
+                    document.body.style.overflow = "hidden";
+                });
+            });
+        }
+    }
+    
+    // Close modal when X is clicked
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+}
   
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -194,66 +218,94 @@ document.querySelectorAll('.project-card').forEach((card, index) => {
         "project1": [
             {
                 src: "images/project1.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project2.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project3.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project4.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project5.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project6.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             },
             {
                 src: "images/project7.png",
-                title: "Project 1",
-                description: "Description of Project 1"
+                title: "Laboratory 1",
+                description: "Making a sample Website using HTML/CSS"
             }
 
         ],
         "project2": [
             {
                 src: "images/lab1.png",
-                title: "Project 2",
-                description: "Description of Project 2"
+                title: "Laboratory 2",
+                description: "Making a Log-In and Registration Form with Database"
             },
             {
                 src: "images/lab2.png",
-                title: "Project 2",
-                description: "Description of Project 2"
+                title: "Laboratory 2",
+                description: "Making a Log-In and Registration Form with Database"
             },
             {
                 src: "images/lab3.png",
-                title: "Project 2",
-                description: "Description of Project 2"
+                title: "Laboratory 2",
+                description: "Making a Log-In and Registration Form with Database"
             },
             {
                 src: "images/lab4.png",
-                title: "Project 2",
-                description: "Description of Project 2"
+                title: "Laboratory 2",
+                description: "Making a Log-In and Registration Form with Database"
             },
             {
                 src: "images/lab5.png",
-                title: "Project 2",
-                description: "Description of Project 2"
+                title: "Laboratory 2",
+                description: "Making a Log-In and Registration Form with Database"
+            }
+            
+        ],
+        "project3": [
+            {
+                src: "images/proj1.png",
+                title: "Laboratory 3",
+                description: "Making a to do list using PHP without Database"
+            },
+            {
+                src: "images/proj2.png",
+                title: "Laboratory 3",
+                description: "Making a to do list using PHP without Database"
+            },
+            {
+                src: "images/proj3.png",
+                title: "Laboratory 3",
+                description: "Making a to do list using PHP without Database"
+            },
+            {
+                src: "images/proj4.png",
+                title: "Laboratory 3",
+                description: "Making a to do list using PHP without Database"
+            },
+            {
+                src: "images/proj5.png",
+                title: "Laboratory 3",
+                description: "Making a to do list using PHP without Database"
             }
             
         ]
